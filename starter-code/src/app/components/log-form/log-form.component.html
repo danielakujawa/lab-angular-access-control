@@ -1,0 +1,20 @@
+
+<h1>Mob form</h1>
+
+<form (ngSubmit)="paquitoForm.valid && handleAddItem()" #paquitoForm="ngForm">
+  <div class="field" >
+    <label>Person</label>
+    <input type="text" name="person" [(ngModel)]="person" required minlength="6"/>
+  </div>
+
+  <div class="field" >
+    <label>Message</label>
+    <input type="text" name="message" [(ngModel)]="message" required minlength="10"/>
+  </div>
+
+  <div class="field submit">
+    <button type="submit">Save</button>
+  </div>
+  <p *ngIf="showMessage">Success!!!</p>
+  <p *ngIf="paquitoForm.invalid && paquitoForm.submitted">Something is wrong in the inputs!</p>
+</form>
