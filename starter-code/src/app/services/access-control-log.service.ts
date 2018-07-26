@@ -9,10 +9,10 @@ export class AccessControlLogService {
     createdAt: Date
   }];
 
-  addAccessItem(person, message){
+  addAccessItem(person: string, message: string): void {
 
     if (!person || !message) {
-      return false;
+      throw new Error('Person and message must be defined');
     }
     const item = {
       person : person,
@@ -21,16 +21,10 @@ export class AccessControlLogService {
     };
 
     this.logMessages.push(item);
-    console.log(this.logMessages);
-    return true;
   }
 
   getAccessLog() {
     return this.logMessages;
   }
-
-
-
-  constructor() { }
 
 }
